@@ -9,6 +9,13 @@ public class GameManager : MonoBehaviour
     public GameObject pipe;
     public float timer = 1.5f;
     public int Score;
+
+    public GameObject gameoverPage;
+    public GameObject gamePage;
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
     private void Start()
     {
         StartCoroutine(SpawnPipe());
@@ -46,6 +53,8 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetInt("Highscore",Score);
             }
         }
+        gamePage.SetActive(false);
+        gameoverPage.SetActive(true);
     }
 
     private IEnumerator SpawnPipe()
