@@ -25,9 +25,11 @@ public class Bird : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(0, 0, rb.velocity.y * rotationSpeed);
     }
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //jika burung bertubrukan dengan collider objek, maka skrip ini akan mengirimkan sinyal ke seluruh skrip yang
+        //mensubscribe kalo game sudah gameover
         Actions.OnGameOver?.Invoke();
     }
     private void OnTriggerEnter2D(Collider2D collision)

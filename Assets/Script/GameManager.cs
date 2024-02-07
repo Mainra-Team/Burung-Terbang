@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
     public GameObject gamePage;
     private void Awake()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1; // 1 = game berjalan dengan kecepatan normal 0 = pause game
     }
+    //3 fungsi yang berjalan diawal
+    //Awake > Onenable > start
     private void Start()
     {
         StartCoroutine(SpawnPipe());
@@ -34,14 +36,14 @@ public class GameManager : MonoBehaviour
         Actions.OnScored -= (value) => { Score += value; };
         Funcs.GetScore -= GetScore;
     }
-    private int GetScore()
+    public int GetScore()
     {
         return Score;
     }
 
     private void GameOver()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0;// game di pause
         if (!PlayerPrefs.HasKey("Highscore"))
         {
             PlayerPrefs.SetInt("Highscore", Score);

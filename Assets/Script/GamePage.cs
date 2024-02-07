@@ -20,7 +20,7 @@ public class GamePage : MonoBehaviour
     }
     private void Update()
     {
-        int score = Funcs.GetScore.Invoke();
+        int score = FindObjectOfType<GameManager>().GetScore();
         scoreTeks.text = $"Score: {score}";
     }
 }

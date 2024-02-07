@@ -12,7 +12,7 @@ public class GameoverPage : MonoBehaviour
     public Button playBTN;
     private void Start()
     {
-        int score = Funcs.GetScore.Invoke();
+        int score = FindObjectOfType<GameManager>().GetScore();
         scoreTeks.text = $"Score : {score}";
 
         playBTN.onClick.AddListener(PlayGame);
